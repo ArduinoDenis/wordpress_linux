@@ -96,4 +96,4 @@ sudo service apache2 restart
 24. ora apri un brower es google chrome, edge, firefox ecc e metti il seguente link http:// ip del server/wp-admin/setup-config.php e continua con la procedura guidata di wordpress
 
 ## Ora compila le informazioni di base del sito seguendo lo screen
-![screen]()
+![screen](https://github.com/ArduinoDenis/wordpress_linux/blob/main/img/screen.png)
