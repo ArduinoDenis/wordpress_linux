@@ -4,7 +4,7 @@
 1. scaricare i files
 
 ```bash
-git clone git@github.com:ArduinoDenis/wordpress_linux.git
+git clone https://github.com/ArduinoDenis/wordpress_linux.git
 ```
 
 2. eseguire il file di installazione
