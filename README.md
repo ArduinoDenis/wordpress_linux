@@ -1,91 +1,92 @@
-# installare wordpress su linux
+# Guida all'installazione di WordPress su Linux
 
-## istruzioni 
-1. scaricare i files
+## Istruzioni
+
+### 1. Scarica i file
 
 ```bash
 git clone https://github.com/ArduinoDenis/wordpress_linux.git
 ```
 
-2. eseguire il file di installazione
+### 2. Esegui il file di installazione
 
 ```bash
 cd wordpress_linux/ && sudo chmod 700 installer.sh && ./installer.sh
 ```
 
-3. aspettare che finisca l'installazione dei vari programmi
+### 3. Attendi il completamento dell'installazione dei vari programmi.
 
-4. una volta terminato seguire la procedura manuale seguente:
+### 4. Procedura manuale post-installazione
 
-5. fare installazione sicura di mysql
+5. Effettua l'installazione sicura di MySQL
 
 ```bash
 sudo mysql_secure_installation
 ```
 
-6. e premere invio e ti verrà chiesto Inserisci la password corrente per root premi invio
+6. Premi invio e inserisci la password corrente per l'utente root.
 
-7. ti verrà chiesto se vuoi Impostare la password di root? digita Y e poi invio
+7. Se richiesto di Impostare la password di root, digita Y e premi invio.
 
-8. Digita una password quando New password: richiesto e premi Invio . Importante: ricorda questa password di root, poiché ti servirà in seguito per configurare WordPress.
+8. Inserisci una nuova password quando richiesto e premi invio. **Importante**: ricorda questa password in quanto necessaria per configurare WordPress in seguito.
 
-9. Digita Y in Remove anonymous users cioè se vuoi rimuovere gli utenti anonimi
+9. Digita Y in "Remove anonymous users" per rimuovere gli utenti anonimi.
 
-10. Digita Y in Disallow root login remotely cioè Non consentire l'accesso root da remoto
+10. Digita Y in "Disallow root login remotely" per impedire l'accesso root da remoto.
 
-11. Digita Y in Remove test database and access to it cioè se vuoi rimuovere il database dei test
+11. Digita Y in "Remove test database and access to it" per rimuovere il database di test.
 
-12. Digita Y in Reload privilege tables now. cioè Ricarica ora le tabelle con i nuovi privilegi.
+12. Digita Y in "Reload privilege tables now" per ricaricare le tabelle dei privilegi.
 
-13. Al termine, vedrai il messaggio All done! e Thanks for using MariaDB!
+13. Al termine, vedrai il messaggio "All done!" e "Thanks for using MariaDB!".
 
-14. esegui mysql con utente root e poi metti la passwiord che hai scelto prima e poi premi invio
+14. Accedi a MySQL con l'utente root e la password scelta in precedenza
 
 ```bash
 sudo mysql -uroot -p
 ```
 
-15. crea il database chiamato wordpress 
+15. Crea il database chiamato wordpress
 
 ```bash
 create database wordpress;
 ```
 
-16. se non ci sono problemi darvi questa risposta:  Query OK, 1 row affected (0.00 sec)
+16. Dovresti ricevere la risposta: "Query OK, 1 row affected (0.00 sec)" se non ci sono problemi.
 
-17. ora concediamo i privilegi al database di wordpress 
+17. Concedi tutti i privilegi al database di WordPress
 
 ```bash
 GRANT ALL PRIVILEGES ON wordpress.* TO 'root'@'localhost' IDENTIFIED BY 'inserisci la tua password';
 ```
 
-18. ricarichiamo i privilegi 
+18. Ricarica i privilegi
 
 ```bash
 FLUSH PRIVILEGES;
 ```
 
-19. Ora bisogna uscire dal mariadb con Ctrl + D
+19. Esci da MariaDB con Ctrl + D
 
-20. abilitiamo un modulo di apache
+20. Abilita il modulo rewrite di Apache
 
 ```bash
 sudo a2enmod rewrite
 ```
 
-21. bisogna configurare apache e aggiungere le seguenti righe al inizio della 1 riga
+21. Configura Apache aggiungendo le seguenti righe all'inizio del file `000-default.conf`
 
 ```bash
-sudo nano /etc/apache2/sites-available/000-default.conf 
+sudo nano /etc/apache2/sites-available/000-default.conf
 ```
 
-```script
+```apache
 <Directory "/var/www/html">
     AllowOverride All
-</Directory> 
+</Directory>
 ```
 
-22. salva ed esci con ctrl+o poi ctrl+x
+Salva ed esci con Ctrl+O e Ctrl+X.
 
 23. Riavvia Apache
 
@@ -93,7 +94,12 @@ sudo nano /etc/apache2/sites-available/000-default.conf
 sudo service apache2 restart
 ```
 
-24. ora apri un brower es google chrome, edge, firefox ecc e metti il seguente link http:// ip del server/wp-admin/setup-config.php e continua con la procedura guidata di wordpress
+24. Apri un browser (es. Google Chrome, Edge, Firefox) e visita il seguente link: `http://ip_del_server/wp-admin/setup-config.php` per continuare con la procedura guidata di WordPress.
 
-## Ora compila le informazioni di base del sito seguendo lo screen
-![screen](https://github.com/ArduinoDenis/wordpress_linux/blob/main/img/screen.png)
+## Compila le informazioni di base del sito seguendo lo screenshot
+
+![Schermata di configurazione](https://github.com/ArduinoDenis/wordpress_linux/blob/main/img/screen.png)
+
+---
+
+Questo file README fornisce istruzioni dettagliate per installare WordPress su un server Linux e completare la configurazione in modo corretto. Segui attentamente i passaggi indicati per assicurarti che l'installazione sia eseguita correttamente.
