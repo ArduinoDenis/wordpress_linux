@@ -1,8 +1,8 @@
-# Guide to Install HTTPS Certificate on a Linux Server
+# Guide to Installing WordPress on Linux
 
 ## Documentation
 
-For further information and detailed documentation, please refer to the [Documentation](https://docs.arduinodenis.com/github/diverse-coding-projects/diverse-coding-projects/https-certificate).
+For further information and detailed documentation, please refer to the [Documentation](https://docs.arduinodenis.com/github/diverse-coding-projects/diverse-coding-projects/wordpress-on-linux).
 
 ## License
 
